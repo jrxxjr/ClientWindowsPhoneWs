@@ -1,0 +1,24 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="TesteJavaEndPointServiceSoapBinding" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="TesteJavaEndPointServiceSoapBinding1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://192.168.1.30:8080/test/TesteJavaEndPointService/TesteJavaEndpoint"
+                binding="basicHttpBinding" bindingConfiguration="TesteJavaEndPointServiceSoapBinding"
+                contract="wsServico.TesteJavaWs" name="TesteJavaEndpointPort" />
+            <endpoint address="http://192.168.1.30:8080/test/TesteJavaEndPointService/TesteJavaEndpoint"
+                binding="basicHttpBinding" bindingConfiguration="TesteJavaEndPointServiceSoapBinding1"
+                contract="wsServico.TesteJavaWs" name="TesteJavaEndpointPort1" />
+        </client>
+    </system.serviceModel>
+</configuration>

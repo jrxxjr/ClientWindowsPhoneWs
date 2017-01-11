@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://webservices.com.br/" name="TesteJavaWs" targetNamespace="http://webservices.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://webservices.com.br/" elementFormDefault="unqualified" targetNamespace="http://webservices.com.br/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="returnServico" type="tns:returnServico" />
+      <xs:element name="returnServicoResponse" type="tns:returnServicoResponse" />
+      <xs:complexType name="returnServico">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parametro1" type="xs:string" />
+          <xs:element minOccurs="0" name="parametro2" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="returnServicoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:cadastroTo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cadastroTo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cadastroId" type="xs:long" />
+          <xs:element minOccurs="0" name="quantidade" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="returnServico">
+    <wsdl:part name="parameters" element="ns1:returnServico" />
+  </wsdl:message>
+  <wsdl:message name="returnServicoResponse">
+    <wsdl:part name="parameters" element="ns1:returnServicoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TesteJavaWs">
+    <wsdl:operation name="returnServico">
+      <wsdl:input name="returnServico" message="ns1:returnServico" />
+      <wsdl:output name="returnServicoResponse" message="ns1:returnServicoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

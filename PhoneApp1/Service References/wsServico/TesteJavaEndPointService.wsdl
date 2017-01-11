@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://localhost:8080/TesteJava" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://webservices.com.br/" name="TesteJavaEndPointService" targetNamespace="http://localhost:8080/TesteJava" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://webservices.com.br/" location="http://192.168.1.30:8080/test/TesteJavaEndPointService/TesteJavaEndpoint?wsdl=TesteJavaWs.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="TesteJavaEndPointServiceSoapBinding" type="ns1:TesteJavaWs">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="returnServico">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="returnServico">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="returnServicoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TesteJavaEndPointService">
+    <wsdl:port name="TesteJavaEndpointPort" binding="tns:TesteJavaEndPointServiceSoapBinding">
+      <soap:address location="http://192.168.1.30:8080/test/TesteJavaEndPointService/TesteJavaEndpoint" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
